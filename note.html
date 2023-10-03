@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Note Taking App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #note-container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .note {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="note-container">
+        <h1>Simple Note Taking App</h1>
+        <div>
+            <textarea id="note-text" placeholder="Enter your note here"></textarea>
+            <button onclick="addNote()">Add Note</button>
+        </div>
+        <div id="notes-list"></div>
+    </div>
+
+    <script>
+        function addNote() {
+            const noteText = document.getElementById("note-text").value;
+            if (noteText.trim() === "") {
+                alert("Please enter a note.");
+                return;
+            }
+
+            const noteContainer = document.getElementById("notes-list");
+            const noteElement = document.createElement("div");
+            noteElement.className = "note";
+            noteElement.innerText = noteText;
+
+            noteContainer.appendChild(noteElement);
+            document.getElementById("note-text").value = "";
+        }
+    </script>
+</body>
+</html>
